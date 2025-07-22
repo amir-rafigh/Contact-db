@@ -1,0 +1,28 @@
+.container_navbar{
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 1rem;
+
+}
+.container_navbar a{
+    all: unset;
+    text-decoration: none;
+}
+.container_navbar a:hover{
+    scale: 1.1;
+}
+
+.container_navbar h1{
+    display: flex;
+    align-items: center;
+    height: 40px;
+    cursor: pointer;
+}
+.container_navbar h1:hover svg{
+    color: green;
+}
+.icon_svg{
+    color: green;
+}

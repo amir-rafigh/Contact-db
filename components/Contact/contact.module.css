@@ -1,0 +1,22 @@
+.contact_container{
+    width: 430px;
+    margin: 2rem auto;
+}
+.contact_container form{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.contact_container input ,
+.contact_container select ,
+.contact_container button {
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 1px solid gray;
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+}
