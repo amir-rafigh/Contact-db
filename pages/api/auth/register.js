@@ -11,7 +11,7 @@ export default async function handler(req, res){
 
     const {FirstName , LastName , Email , Password , Role}= req.body
     if(!FirstName || !LastName || !Email || !Password || !Role){
-        return res.status(422).json({message:"all fields must to be fill"})
+        return res.status(422).json({message:"all fields must  be fill"})
     }
 
       
@@ -24,6 +24,7 @@ export default async function handler(req, res){
         return res.status(422).json({message:"email is invalid"})
       }
       
+      await ConnectDB();
       const isEmail = await users.findOne({Email})
       if(isEmail){
         return res.status(409).json("This email Already registered")
@@ -31,8 +32,7 @@ export default async function handler(req, res){
       
       const hashpass = await bcrypt.hash(Password , 10)
       
-      await ConnectDB();
-      const countUser = await users.countDocuments()   
+      const countUser = await users.countDocuments()
       await users.create({...req.body , Password:hashpass , Role: countUser>0?"user":"admin"})
       res.status(201).json("regiter successfully")
       
