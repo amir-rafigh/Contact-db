@@ -6,7 +6,7 @@ export default async function ConnectDB(){
             return
         }
        await mongoose
-        .connect("mongodb://localhost:27017/next-contact-2")
+        .connect(process.env.API_URI)
         .then(() => {
             console.log("successfully connected")
              
