@@ -26,8 +26,8 @@ export default async function handler(req , res){
             return res.status(422).json({message:"Email or password is invalid"})
         }
 
-        const Secret_Key = "adslkjf0934r9302tfr&*(^&*df"
-        const JWT = jwt.sign({Email:isValidUser.Email , Role : isValidUser.Role},Secret_Key ,
+        
+        const JWT = jwt.sign({Email:isValidUser.Email , Role : isValidUser.Role},process.env.Secret_Key ,
             {expiresIn:"120m"}
         )
         res.status(200).json({message:"your login is successfully" , JWT })
