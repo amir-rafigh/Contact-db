@@ -13,7 +13,7 @@ export default function Navbar(){
         <>
         <div className={Styles.container_navbar}>
 
-            <Link href="/contacts">
+            <Link href="/auth/login">
                 <h1> <CgLogIn className={route=="/contacts"?Styles.icon_svg:""} />Login </h1>
             </Link>
             <Link href="/contacts">

@@ -3,13 +3,41 @@
     height: 100vh;
     display: flex;
     justify-content: center ;
-    align-items: center;
+    align-items: start;
 }
 .form{
-    width: 500px;
-    height: 300px;
-    margin:  auto;
+    width: 400px;
+    margin:  10rem 0;
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
+    gap: 0.5rem;
+    padding: 3rem 1rem;
+}
+
+.form input{
+    padding: 1rem;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+    border: 1px solid gray;
+}
+
+.form button{
+    padding: 0.5rem;
+    background-color: rgb(18, 151, 18);
+    border: none;
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+    color: white;
+}
+.register{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
 }

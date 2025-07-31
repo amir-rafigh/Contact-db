@@ -1,12 +1,29 @@
+import users from "@/models/users"
+import ConnectDB from "@/utils/connectdb"
 import Styles from "@/styles/login.module.css"
-export default function Login(){
+import { useState } from "react"
+export default async function Login (){
+    const [form_data , setForm_data]=useState({
+        Email:"",
+        Password:""
+
+    })
+    const getFormData =(e)=>{
+        setForm_data({...form_data , [e.target.name]:e.target.value})
+
+    }
+
+  
+    
+
+
     return(
         <div className={Styles.container}>
             <form className={Styles.form}>
-                <input type="email" name="email" placeholder="Email"/>
-                <input type="password" name="password" placeholder="Password"/>
+                <input onChange={getFormData} type="email" name="Email" placeholder="Email"/>
+                <input onChange={getFormData} type="password" name="Password" placeholder="Password"/>
                 <button>Login</button>
-                <div>
+                <div className={Styles.register}>
                     <p>Not Registered?</p>
                     <span style={{color:"green"}}>Create an account</span>
                 </div>
