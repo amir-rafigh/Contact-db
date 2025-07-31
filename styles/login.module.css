@@ -1,0 +1,15 @@
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+}
+.form{
+    width: 500px;
+    height: 300px;
+    margin:  auto;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+}
