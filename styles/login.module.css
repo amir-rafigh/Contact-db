@@ -14,8 +14,8 @@
     padding: 3rem 1rem;
 }
 
-.form input{
-    padding: 1rem;
+.form > .email{
+    padding: 0.8rem;
     border-radius: 1rem;
     -webkit-border-radius: 1rem;
     -moz-border-radius: 1rem;
@@ -23,6 +23,30 @@
     -o-border-radius: 1rem;
     border: 1px solid gray;
 }
+.email > input{
+    all: unset;
+
+}
+
+.password{
+    padding: 0.8rem;
+    border: 1px solid gray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+}
+.password input{
+    all: unset;
+}
+.password > svg{
+    cursor: pointer;
+}
+
 
 .form button{
     padding: 0.5rem;
@@ -34,10 +58,40 @@
     -ms-border-radius: 0.5rem;
     -o-border-radius: 0.5rem;
     color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.form input{
+    width: 100%;
 }
 .register{
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 0.8rem;
+}
+.spinner {
+    animation: spinner 1s linear infinite;
+    -webkit-animation: spinner 1s linear infinite;
+}
+
+
+@keyframes spinner {
+    0%{
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+}
+    
 }
