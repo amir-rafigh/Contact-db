@@ -2,6 +2,8 @@ import users from "@/models/users"
 import ConnectDB from "@/utils/connectdb"
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
+import { serialize } from "cookie"
+import { cookies } from "next/headers"
 export default async function handler(req , res){
     if(req.method !== "POST"){
         return res.status(405).json({message:"method not allowed"})
@@ -24,13 +26,24 @@ export default async function handler(req , res){
         const isValidPassword = await bcrypt.compare(Password , isValidUser.Password)    
         if(!isValidPassword){
             return res.status(422).json({message:"Email or password is invalid"})
-        }
+        }      
 
+        const JWT = jwt.sign({Email:isValidUser.Email , Role :isValidUser.Role}, process.env.Secret_Key ,
+           {expiresIn:"2h"})
         
-        const JWT = jwt.sign({Email:isValidUser.Email , Role : isValidUser.Role},process.env.Secret_Key ,
-            {expiresIn:"120m"}
-        )
-        res.status(200).json({message:"your login is successfully" , JWT })
+        res.setHeader("Set-Cookie" , serialize("token" , JWT , {
+            httpOnly:"true",
+            sameSite:"strict",
+            path:"/",
+            maxAge: 60 *60 * 3
+
+        }))
+        
+        res.status(200).json({message:"it's successfully"})
+        
+
+
+
 
     }catch(err){
         res.status(500).json({message:"server error"})
