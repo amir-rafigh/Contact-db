@@ -19,6 +19,8 @@ export default function Dashboard({res}){
 export async function getServerSideProps(context){
     const res_Valid = await ValidToken(context)
     if(res_Valid===false){
+        console.log("don't be TOken");
+        
         return{
             redirect:{
                 destination:"/auth/login"

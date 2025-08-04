@@ -11,11 +11,13 @@ export default function Addcontact(){
 }
 
 export async function getServerSideProps(context){
-    const res_Valid =  ValidToken(context)
+    const res_Valid = await ValidToken(context)
     if(res_Valid === false){
+        
       return{
         redirect:{
             destination:"/auth/login"
+
         }
       }
         
@@ -28,4 +30,3 @@ export async function getServerSideProps(context){
     }
 
 }
-// const Token =jwt.sing("")
