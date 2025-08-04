@@ -3,7 +3,6 @@ import ConnectDB from "@/utils/connectdb"
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
 import { serialize } from "cookie"
-import { cookies } from "next/headers"
 export default async function handler(req , res){
     if(req.method !== "POST"){
         return res.status(405).json({message:"method not allowed"})
@@ -38,7 +37,7 @@ export default async function handler(req , res){
             maxAge: 60 *60 * 3
 
         }))
-        
+
         res.status(200).json({message:"it's successfully"})
         
 
@@ -48,5 +47,4 @@ export default async function handler(req , res){
     }catch(err){
         res.status(500).json({message:"server error"})
     }
-
 }

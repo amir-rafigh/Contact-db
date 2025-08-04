@@ -3,6 +3,7 @@ import Link from "next/link"
 import { useState } from "react"
 import { FaEyeSlash, FaRegEye, FaSpinner  } from "react-icons/fa";
 import { ToastContainer, toast } from 'react-toastify';
+import Router, { useRouter } from "next/router";
 
 
 export default  function Login (){
@@ -23,6 +24,7 @@ export default  function Login (){
 
 
     }    
+    const router = useRouter();
     const sendData=async(e)=>{
         setSpinner(true)
         e.preventDefault()
@@ -49,6 +51,8 @@ export default  function Login (){
         setSpinner(false)
         if(res.status===200){
             toast.success(data.message)
+            router.replace("/dashboard")
+            
         }
         else{
             toast.error(data.message)

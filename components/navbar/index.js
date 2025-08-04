@@ -22,8 +22,8 @@ export default function Navbar(){
             <Link href="/contacts/add">
                 <h1> <MdAddCircleOutline className={route=="/contacts/add"?Styles.icon_svg:""} /> Add Contact</h1>
             </Link>
-            <Link href="/contacts/add">
-                <h1> <BiSolidDashboard className={route=="/contacts/add"?Styles.icon_svg:""} /> Dashboard</h1>
+            <Link href="/dashboard">
+                <h1> <BiSolidDashboard className={route=="/dashboard"?Styles.icon_svg:""} /> Dashboard</h1>
             </Link>
         </div>
         </>
