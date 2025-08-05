@@ -4,6 +4,8 @@ import Link from "next/link"
 import { ToastContainer, toast } from 'react-toastify';
 import { FaEyeSlash, FaRegEye , FaSpinner  } from "react-icons/fa";
 import { router } from "next/router";
+import { redirect } from "next/dist/server/api-utils";
+import ValidToken from "@/utils/valid_token";
 export default function Register(){
     const [showpass ,setShowpass]=useState(false)
     const [spinner , setSpinner]=useState(false)
@@ -88,4 +90,21 @@ export default function Register(){
          </div>
         </>
     )
+}
+export  async function getServerSideProps(context){
+    const isToken = await ValidToken(context)
+   if(isToken){
+    return{
+        redirect:{
+            destination:"/dashboard"
+        }
+    }
+   }
+    
+
+
+    return{
+        props:{}
+    }
+    
 }

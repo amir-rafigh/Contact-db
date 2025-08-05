@@ -8,7 +8,7 @@ import { verify } from "jsonwebtoken"
     try{
         const Payload = verify(token , process.env.Secret_Key)
         res.status(200).json(Payload)
-        console.log(Payload);
+       return Payload
         
 
     }catch(error){
