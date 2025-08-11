@@ -49,16 +49,15 @@ export default  function Login ({isauth , setIsauth}){
         }) 
         const data = await res.json()  
         setSpinner(false)
-        setIsauth(true)
         if(res.status===200){
             toast.success(data.message)
             router.replace("/dashboard")
+            setIsauth(true)
             
         }
         else{
             toast.error(data.message)
         }
-        console.log(data);
         
         
 

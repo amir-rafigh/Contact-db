@@ -4,8 +4,11 @@ import { MdModeEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 import Styles from "./getcontact.module.css";
 import Link from "next/link";
+import { useState } from 'react';
 export default function Contactitem(item){
-    const{FirstName , LastName , Age , Gender , Phone , _id , setContactitem , contactitem} = item
+    const{FirstName , LastName , Age , Gender , Phone , _id , Favorite ,setContactitem , contactitem} = item
+    const[isfavorite , setIsfavorite] = useState(false)
+    const[isexistId , setIsexistId]= useState([])
 
     const deleteItemHandler=async()=>{
         const response = await fetch(`http://localhost:3000/api/contacts/${_id}` , {
@@ -24,9 +27,28 @@ export default function Contactitem(item){
         
         
     }
+    const favoriteitemhandler=async(_id)=>{
+        setIsfavorite(!isfavorite)    
+        const like = await fetch (`http://localhost:3000/api/contacts/${_id}` ,{method:"PATCH"})
+        const res = await like.json()
+        console.log(res.message);
+        const fav_item = contactitem.map((item)=>{
+            if(item._id == _id){                
+                item.Favorite =!item.Favorite                
+            }
+            return item
+        }
+    )
+    setContactitem(fav_item)
+        
+
+    
+
+    }
 
     return(
         <>
+        
          <ToastContainer/>
         <div className={Styles.container_card}>
             <div className={Styles.card}>
@@ -47,7 +69,7 @@ export default function Contactitem(item){
                   </div>
             </div>
             <div className={Styles.icons}>
-            <MdFavorite  size={30} />
+            <MdFavorite  size={30} onClick={()=>favoriteitemhandler(_id)} style={{color:Favorite?"red":"black"}} />
             <Link href={`/contacts/edit/${_id}`}>
                 <MdModeEdit size={30}/>             
             </Link>           

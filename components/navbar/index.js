@@ -8,14 +8,19 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import ValidToken from "@/utils/valid_token";
 import { useEffect, useState } from "react";
-
+import { ToastContainer, toast } from 'react-toastify';
 export default function Navbar({isauth , setIsauth}){
     
     const route = useRouter().pathname  
     const logouthandler = async()=>{
-        setIsauth(false)
         const log_send = await fetch("api/auth/logout")
-        console.log(log_send.status);
+        const res = await log_send.json();
+        if(log_send.status==200){
+            setIsauth(false)
+            toast.success(res.message)            
+        }
+        
+
         
 
 
@@ -24,6 +29,7 @@ export default function Navbar({isauth , setIsauth}){
     return(
         <>
         <div className={Styles.container_navbar}>
+            <ToastContainer/>
 
            {isauth === true ? (
              <Link href="/auth/login" onClick={logouthandler}>

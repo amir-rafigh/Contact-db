@@ -27,7 +27,7 @@ export default async function handler(req, res){
       await ConnectDB();
       const isEmail = await users.findOne({Email})
       if(isEmail){
-        return res.status(409).json("This email Already registered")
+        return res.status(409).json({message :"This email Already registered"})
       }
       
       const hashpass = await bcrypt.hash(Password , 10)

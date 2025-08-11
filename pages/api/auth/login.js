@@ -19,6 +19,7 @@ export default async function handler(req , res){
             return res.status(422).json({message:"Email or password is invalid"})
         }
         const isValidUser = await users.findOne({Email})
+        
         if(!isValidUser){
             return res.status(422).json({message:"Email or PassWord is invalid"})
         }
@@ -27,7 +28,7 @@ export default async function handler(req , res){
             return res.status(422).json({message:"Email or password is invalid"})
         }      
 
-        const JWT = jwt.sign({Email:isValidUser.Email , Role :isValidUser.Role}, process.env.Secret_Key ,
+        const JWT = jwt.sign({Email:isValidUser.Email , Role :isValidUser.Role , User_Id :isValidUser._id}, process.env.Secret_Key ,
            {expiresIn:"2h"})
         
         res.setHeader("Set-Cookie" , serialize("token" , JWT , {

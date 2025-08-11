@@ -29,13 +29,16 @@ export default function Register(){
 
         })
         const res = await data.json()
+        
         setSpinner(false)
         if(data.status==201){
             toast.success(res.message)
             return router.replace("/auth/login")
         }
-        else{
+        else if(data.status==409){
              return toast.error(res.message)
+            
+            
         }
         
         
@@ -53,8 +56,9 @@ export default function Register(){
     }
 
     return(
-        <>
-            
+    
+            <>
+            <ToastContainer/>
          <div className={Styles.container}>
              <form className={Styles.form}>
                  <div className={Styles.name_information}>

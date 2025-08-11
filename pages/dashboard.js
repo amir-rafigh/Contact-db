@@ -5,7 +5,6 @@ import { redirect } from "next/dist/server/api-utils";
 import Styles from "@/styles/dashboard.module.css"
 import ValidToken from "@/utils/valid_token";
 export default function Dashboard({res}){
-    console.log(res);
     
     return(
         <div className={Styles.Dashboard}>
@@ -19,7 +18,6 @@ export default function Dashboard({res}){
 export async function getServerSideProps(context){
     const res_Valid = await ValidToken(context)
     if(res_Valid===false){
-        console.log("don't be TOken");
         
         return{
             redirect:{

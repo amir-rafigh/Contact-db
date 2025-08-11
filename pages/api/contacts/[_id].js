@@ -17,7 +17,15 @@ export default async function handler(req , res){
         
 
     }
-    if(req.method=="DELETE"){
+    else if(req.method=="PATCH"){
+        const data = await modelcontacts.findOne({_id})
+        data.Favorite = !data.Favorite
+        await data.save()
+        res.json({message:"favorite added"})
+        
+        
+    }
+    else if(req.method=="DELETE"){
         try{
            const response = await modelcontacts.findByIdAndDelete(_id)
            if(response){

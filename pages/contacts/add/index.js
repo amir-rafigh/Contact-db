@@ -2,10 +2,10 @@ import Contact from "@/components/Contact";
 import ValidToken from "@/utils/valid_token";
 import { verify } from "jsonwebtoken";
 
-export default function Addcontact(){
+export default function Addcontact({User_Id}){
     return(
         <>
-        <Contact/>
+        <Contact User_Id={User_Id}/>
         </>
     )
 }
@@ -26,7 +26,7 @@ export async function getServerSideProps(context){
 
     
     return{
-        props:{}
+        props:{User_Id:res_Valid.User_Id}
     }
 
 }
