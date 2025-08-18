@@ -27,14 +27,14 @@ export default async function handler(req, res){
       await ConnectDB();
       const isEmail = await users.findOne({Email})
       if(isEmail){
-        return res.status(409).json("This email Already registered")
+        return res.status(409).json({message :"This email Already registered"})
       }
       
       const hashpass = await bcrypt.hash(Password , 10)
       
       const countUser = await users.countDocuments()
       await users.create({...req.body , Password:hashpass , Role: countUser>0?"user":"admin"})
-      res.status(201).json("regiter successfully")
+      res.status(201).json({message:"regiter successfully"})
       
     }catch(error){
       res.status(500).json({message:"error server"})

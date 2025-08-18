@@ -14,7 +14,7 @@ export default async function ConnectDB(){
           
         
     }catch(error){
-        console.log(error);      
+        console.log("disconnected");      
 
     }
     

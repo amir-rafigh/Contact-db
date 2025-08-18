@@ -1,4 +1,4 @@
-import {model , models , Schema} from "mongoose"
+import mongoose, {model , models , Schema} from "mongoose"
 
 const contactSchema = new Schema({
     FirstName:{
@@ -16,12 +16,21 @@ const contactSchema = new Schema({
         type:Number,
         min:[18 , "your old must atleast 18"]
     },
+    Favorite:{        
+        type:Boolean,
+        default: "false"
+    },
     Phone:{
         type: String,
         match:[/09\d{9}/ , "your phone number must start by 09 and the phone number must to be 11 numbers"],
         maxLength:[11 , "the phone number should not be longer than 11 digits"]
     },
-    Gender:{  type:String }
+    Gender:{  type:String },
+    User_Id:{
+        type: mongoose.Types.ObjectId,
+        ref : "users"
+
+    }
 
 
 })

@@ -1,20 +1,28 @@
 import { ToastContainer, toast } from 'react-toastify';
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Styles from "./contact.module.css"
-export default function Contact(){
+export default function Contact({User_Id}){
+    
+    
     const[dataForm , setDataForm]=useState({
         FirstName:"",
         LastName:"",
         Age:"",
         Gender:"",
-        Phone:""
+        Phone:"",
+       
     })
-    const  getDataHandler=(e)=>{
-        setDataForm({...dataForm , [e.target.name]:e.target.value}) 
-       }
 
-    const addContactHandler=async(e)=>{
+    const  getDataHandler=(e)=>{       
+        setDataForm({...dataForm , [e.target.name]:e.target.value , User_Id}) 
+    }
+
+    
+    const addContactHandler=async(e)=>{        
+
+
         e.preventDefault();
+
         const formvalid = Object.values(dataForm).every((item=>item !== ""))
         if(!formvalid){
             return toast.error("please fill all the blanks")
@@ -32,6 +40,12 @@ export default function Contact(){
         if(!Phone.match(/09\d{9}/)|| Phone.length>11){
             return toast.error("please enter a valid phone number")
           }
+
+
+         
+          
+
+
 
         
        
