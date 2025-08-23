@@ -3,15 +3,44 @@
     height: 100vh;
     display: flex;
     justify-content: center ;
-    align-items: start;
+    align-items: center;
+}
+.form_container{
+    border: 1px solid black;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    
+    
+}
+.login_button{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+
+}
+.login_button button{
+    all: unset;   
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+    cursor: pointer;
+}
+.login_button_method{
+    border-bottom: 3px solid rgb(18, 151, 18)!important;
 }
 .form{
     width: 400px;
-    margin:  10rem 0;
+    /* margin:  10rem 0; */
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    padding: 3rem 1rem;
+    padding: 6rem 1rem;
 }
 
 .form > .email{
@@ -95,3 +124,36 @@
 }
     
 }
+
+.otp_phone{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    padding: 6rem 1rem;
+}
+.otp_phone input{
+    all: unset;
+    padding: 0.8rem;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+    border: 1px solid gray;
+    margin: 0.8rem 0rem;
+    font-size: 1rem;
+}
+.otp_phone button{
+    all: unset;
+    padding: 0.2rem;
+    border: 1px solid gray;
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+    text-align: center;
+    background-color: rgb(18, 151, 18);
+    color: white;
+}
+

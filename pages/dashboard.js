@@ -5,6 +5,8 @@ import { redirect } from "next/dist/server/api-utils";
 import Styles from "@/styles/dashboard.module.css"
 import ValidToken from "@/utils/valid_token";
 export default function Dashboard({res}){
+ 
+    
     
     return(
         <div className={Styles.Dashboard}>
@@ -28,7 +30,7 @@ export async function getServerSideProps(context){
 
 
     await ConnectDB()
-    const data = await users.findOne({Email: res_Valid.Email})   
+    const data = await users.findOne({Email: res_Valid.Email}).lean();
     const res =  JSON.parse(JSON.stringify(data))    
 
 

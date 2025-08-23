@@ -14,6 +14,7 @@ export default function Register(){
         LastName:"",
         Email:"",
         Password:"",
+        Phone:"",
         Role:"user"
     })
     const getData =(e)=>{
@@ -39,6 +40,9 @@ export default function Register(){
              return toast.error(res.message)
             
             
+        }
+        else if(data.status===422){
+            return toast.error(res.message)
         }
         
         
@@ -75,6 +79,10 @@ export default function Register(){
                  <div>                    
                      <label>Email Address</label>
                      <input onChange={getData} type="Email" name="Email" id="" placeholder="Email Address" value={getdata.Email}/>
+                 </div>
+                 <div>                    
+                     <label>Phone number</label>
+                     <input onChange={getData} type="Email" name="Phone" id="" placeholder="phone number" value={getdata.Phone}/>
                  </div>
 
                  <div className={Styles.password}>

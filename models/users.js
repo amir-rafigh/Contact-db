@@ -26,10 +26,20 @@ const userschema = new Schema({
         unique:true
 
     },
+    Phone:{
+        type:String,
+        required:true,
+    },
     Role:{
         type:String,
         enum:["admin" , "user"],
         default:"user"
+    },
+    Code:{
+        type:String,        
+    },
+    Exp_time:{
+        type:Date
     }
 
 

@@ -56,7 +56,7 @@ export default function Contact({User_Id}){
         })
         const res = await data.json();        
         if(data.status==201){
-            toast.success(res)
+            toast.success(res.message)
             setDataForm({
                 FirstName:"",
                 LastName:"",
@@ -78,7 +78,6 @@ export default function Contact({User_Id}){
 
     return(
         <div className={Styles.contact_container}>
-            <ToastContainer/>
             <form>
                 <input value={dataForm.FirstName} onChange={getDataHandler} type="text" name="FirstName" id="" placeholder="FirstName" />
                 <input value={dataForm.LastName} onChange={getDataHandler} type="text" name="LastName" id="" placeholder="LastName" />
