@@ -85,7 +85,7 @@ export default function Editcontact({res}){
 }
 
 export async function getServerSideProps(context){
-    const{_id}=context.params    
+    const{_id} = context.params    
     await ConnectDB();
     const data = await modelcontacts.findById(_id).lean()
     const res = JSON.parse(JSON.stringify(data))

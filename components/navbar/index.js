@@ -33,10 +33,10 @@ export default function Navbar({isauth , setIsauth}){
 
            {isauth === true ? (
              <Link href="/auth/login" onClick={logouthandler}>
-             <h1> <CgLogOut className={route=="/contacts"?Styles.icon_svg:""} />Logout </h1>
+             <h1> <CgLogOut/>Logout </h1>
             </Link>
            ):(<Link href="/auth/login">
-            <h1> <CgLogIn className={route=="/contacts"?Styles.icon_svg:""} />Login </h1>
+            <h1> <CgLogIn className={route=="/auth/login"?Styles.icon_svg:""} />Login </h1>
            </Link>)}
             <Link href="/contacts">
                 <h1> <RiContactsBook3Fill className={route=="/contacts"?Styles.icon_svg:""} />Contacts </h1>

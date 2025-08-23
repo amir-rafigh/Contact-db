@@ -94,7 +94,10 @@ export async function getServerSideProps(context) {
   const Payload = await ValidToken(context);
   if (!Payload) {
     return {
-      redirect: { destination: "/auth/login" },
+      redirect: { 
+        destination: "/auth/login?auth_token=auth_required",
+        permanent: false,
+      },
     };
   }
   const User_Id = Payload.User_Id;

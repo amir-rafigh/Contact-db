@@ -20,8 +20,11 @@ export default async function handler(req , res){
     else if(req.method=="PATCH"){
         const data = await modelcontacts.findOne({_id})
         data.Favorite = !data.Favorite
-        await data.save()
-        res.json({message:"favorite added"})
+        await data.save()  
+     
+        const msg = data.Favorite ? "favorite added" :"favorite removed"
+        return res.json({message : msg})
+        
         
         
     }

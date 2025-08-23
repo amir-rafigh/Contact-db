@@ -6,14 +6,14 @@ export default async function ConnectDB(){
             return
         }
        await mongoose
-        .connect(process.env.API_URI)
+       .connect(process.env.API_URI)
         .then(() => {
             console.log("successfully connected")
              
           })
           
         
-    }catch(error){
+    }catch(err){
         console.log("disconnected");      
 
     }

@@ -9,15 +9,19 @@ export default async function handler(req, res){
 
     try{      
 
-    const {FirstName , LastName , Email , Password , Role}= req.body
-    if(!FirstName || !LastName || !Email || !Password || !Role){
-        return res.status(422).json({message:"all fields must  be fill"})
+    const {FirstName , LastName , Email , Password , Role , Phone}= req.body
+    if(!FirstName || !LastName || !Email || !Password || !Role || !Phone){
+        return res.status(422).json({message:"all fields must be fill"})
     }
 
       
       if(Password.length<8){
         return res.status(422).json({message:"password must to be more than 8 character"})
       }
+
+      if(!Phone.match(/09\d{9}/)|| Phone.length>11){
+        return res.status(422).json({message:"please enter a valid phone number"})
+        }
 
       const regexEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
       if(!regexEmail.test(Email)){

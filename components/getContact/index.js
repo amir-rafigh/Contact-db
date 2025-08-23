@@ -11,18 +11,17 @@ export default function Contactitem(item){
     const[isexistId , setIsexistId]= useState([])
 
     const deleteItemHandler=async()=>{
+        toast.success("delete")
         const response = await fetch(`http://localhost:3000/api/contacts/${_id}` , {
             method:"DELETE"
         })
         const data = await response.json()
         if(response.ok){
             setContactitem(contactitem.filter((item)=>(item._id !== _id)))
-            toast.success(data.message)
-            console.log(data.message);
             
         }
         if(response.status==404){
-            toast.error(res.message)
+            toast.error(res.message , )
         }
         
         
@@ -31,7 +30,7 @@ export default function Contactitem(item){
         setIsfavorite(!isfavorite)    
         const like = await fetch (`http://localhost:3000/api/contacts/${_id}` ,{method:"PATCH"})
         const res = await like.json()
-        console.log(res.message);
+        toast.success(res.message)
         const fav_item = contactitem.map((item)=>{
             if(item._id == _id){                
                 item.Favorite =!item.Favorite                
@@ -47,9 +46,7 @@ export default function Contactitem(item){
     }
 
     return(
-        <>
-        
-         <ToastContainer/>
+        <>       
         <div className={Styles.container_card}>
             <div className={Styles.card}>
                   <div className="firstname">

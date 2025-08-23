@@ -39,7 +39,7 @@ export default async function handler(req , res){
 
         }))
 
-        res.status(200).json({message:"it's successfully"})
+        res.status(200).json({message:"login  successfully"})
         
 
 

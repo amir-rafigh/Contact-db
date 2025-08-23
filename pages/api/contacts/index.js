@@ -33,7 +33,7 @@ async function gethandler(req , res){
 async function posthandler(req , res){
     try{
         await modelcontacts.create(req.body)
-        res.status(201).json("create new contact successfully")
+        res.status(201).json({message:"create new contact successfully"})
     }
     catch(error){            
         res.status(500).json(error.message)

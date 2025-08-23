@@ -21,10 +21,19 @@ export default function App({ Component, pageProps }) {
   },[])
   return(
     <>
-    <ToastContainer  />
-    <Head><link rel="icon" href="data:," /></Head>
-    <Navbar isauth={isauth} setIsauth={setIsauth}/>
-    <Component isauth={isauth} setIsauth={setIsauth} {...pageProps} />
+      <ToastContainer  
+           position="top-right"
+          autoClose={2000}
+          closeButton={false}
+          hideProgressBar
+          pauseOnHover={false}
+          pauseOnFocusLoss={false}
+          draggable={false}
+          newestOnTop
+          limit={1} />
+      <Head><link rel="icon" href="data:," /></Head>
+      <Navbar isauth={isauth} setIsauth={setIsauth}/>
+      <Component isauth={isauth} setIsauth={setIsauth} {...pageProps} />
     </>
   )
 }
