@@ -4,14 +4,24 @@ import { verify } from "jsonwebtoken";
 import { redirect } from "next/dist/server/api-utils";
 import Styles from "@/styles/dashboard.module.css"
 import ValidToken from "@/utils/valid_token";
+import { FaSquarePhone } from "react-icons/fa6";
+import { MdEmail } from "react-icons/md";
+import { RiShieldUserFill } from "react-icons/ri";
+
+
+
 export default function Dashboard({res}){
  
     
     
     return(
         <div className={Styles.Dashboard}>
-            <h1> hi {res.FirstName} {res.LastName}</h1>
-            {res.Role=="admin"?<h1>{res.Role}</h1>:""}
+            <div className={Styles.Dashboard_Container}>
+                <h1>Hi {res.FirstName} {res.LastName}</h1>
+                <h3><FaSquarePhone /> Phone Number : {res.Phone}</h3>
+                <h3> <MdEmail /> Email : {res.Email}</h3>                         
+                <h3> <RiShieldUserFill /> Role : {res.Role}</h3>                         
+            </div>
         </div>
         
     )

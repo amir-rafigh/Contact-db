@@ -8,7 +8,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import ValidToken from "@/utils/valid_token";
 import { useEffect, useState } from "react";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 export default function Navbar({isauth , setIsauth}){
     
     const route = useRouter().pathname  
@@ -29,8 +29,6 @@ export default function Navbar({isauth , setIsauth}){
     return(
         <>
         <div className={Styles.container_navbar}>
-            <ToastContainer/>
-
            {isauth === true ? (
              <Link href="/auth/login" onClick={logouthandler}>
              <h1> <CgLogOut/>Logout </h1>

@@ -1,7 +1,7 @@
 import Styles from "@/styles/register.module.css"
 import { useState } from "react"
 import Link from "next/link"
-import { ToastContainer, toast } from 'react-toastify';
+import {toast } from 'react-toastify';
 import { FaEyeSlash, FaRegEye , FaSpinner  } from "react-icons/fa";
 import { router } from "next/router";
 import { redirect } from "next/dist/server/api-utils";
@@ -31,19 +31,18 @@ export default function Register(){
         })
         const res = await data.json()
         
-        setSpinner(false)
         if(data.status==201){
-            toast.success(res.message)
+            toast.success(res.message || "Registered successfully")
             return router.replace("/auth/login")
         }
         else if(data.status==409){
-             return toast.error(res.message)
-            
+            return toast.error(res.message)           
             
         }
         else if(data.status===422){
             return toast.error(res.message)
         }
+        setSpinner(false)
         
         
         
@@ -62,7 +61,6 @@ export default function Register(){
     return(
     
             <>
-            <ToastContainer/>
          <div className={Styles.container}>
              <form className={Styles.form}>
                  <div className={Styles.name_information}>

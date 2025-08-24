@@ -2,7 +2,7 @@ import Styles from "@/styles/login.module.css"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { FaEyeSlash, FaRegEye, FaSpinner  } from "react-icons/fa";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import Router, { useRouter } from "next/router";
 
 
@@ -63,7 +63,7 @@ export default  function Login ({isauth , setIsauth}){
         }
 
 
-        const res = await fetch("http://localhost:3000/api/auth/login",{
+        const res = await fetch("/api/auth/login",{
             method:"POST",
             body:JSON.stringify(form_data),
             headers:{"Content-Type":"application/json"}
@@ -188,7 +188,6 @@ export default  function Login ({isauth , setIsauth}){
 
     return(
         <>
-        <ToastContainer />
         <div className={Styles.container}>
             <form >
                 <div className={Styles.form_container}>
