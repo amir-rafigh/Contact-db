@@ -49,7 +49,7 @@ export default function Contact({User_Id}){
 
         
        
-       const data = await fetch("http://localhost:3000/api/contacts" ,{
+       const data = await fetch("/api/contacts" ,{
             method:"POST",
             headers:{"Content-Type":"application/json"},
             body: JSON.stringify(dataForm)

@@ -29,7 +29,7 @@ export default function Contacts({ data , User_Id }) {
   };
   const getfilterform = async () => {
     const response = await fetch(
-      `http://localhost:3000/api/contacts?User_Id=${User_Id}&search=${filterform.FLname}&gen=${filterform.Gender}`
+      `/api/contacts?User_Id=${User_Id}&search=${filterform.FLname}&gen=${filterform.Gender}`
     );
     const data = await response.json();
 
@@ -49,6 +49,8 @@ export default function Contacts({ data , User_Id }) {
 
   return (
     <>
+    <div className={Styles.container_contact}>
+
       <div className={Styles.container_search}>
         <input
           value={filterform.FLname}
@@ -64,7 +66,7 @@ export default function Contacts({ data , User_Id }) {
           name="Gender"
           id=""
           placeholder="gender"
-        >
+          >
           <option hidden value="">
             all
           </option>
@@ -72,20 +74,21 @@ export default function Contacts({ data , User_Id }) {
           <option value="female">female</option>
         </select>
         <button onClick={getfilterform}>search</button>
-        <MdFavorite onClick={favoritehandler} fill={favstatus?"red":"black"} size={"35px"}/>
+        <span><MdFavorite onClick={favoritehandler} fill={favstatus?"red":"black"} size={"35px"}/></span>
       </div>
       {contactitem.length > 0 ? (
         contactitem.map((item) => (
           <Contactitem
-            key={item._id}
-            {...item}
-            contactitem={contactitem}
-            setContactitem={setContactitem}
+          key={item._id}
+          {...item}
+          contactitem={contactitem}
+          setContactitem={setContactitem}
           />
         ))
       ) : (
-        <p>there is no audience</p>
+        <p style={{fontSize:"1.5rem" , textAlign:"center" ,textTransform:"capitalize" }}>there is no audience</p>
       )}
+      </div>
     </>
   );
 }

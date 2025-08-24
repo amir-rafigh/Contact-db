@@ -28,7 +28,7 @@ export default function Contactitem(item){
     }
     const favoriteitemhandler=async(_id)=>{
         setIsfavorite(!isfavorite)    
-        const like = await fetch (`http://localhost:3000/api/contacts/${_id}` ,{method:"PATCH"})
+        const like = await fetch (`/api/contacts/${_id}` ,{method:"PATCH"})
         const res = await like.json()
         toast.success(res.message)
         const fav_item = contactitem.map((item)=>{

@@ -66,7 +66,7 @@ export default function Editcontact({res}){
 
     return(
         <div className={Styles.contact_container}>
-            <ToastContainer/>
+            
             <form>
                 <input value={dataForm.FirstName} onChange={getDataHandler} type="text" name="FirstName" id="" placeholder="FirstName" />
                 <input value={dataForm.LastName} onChange={getDataHandler} type="text" name="LastName" id="" placeholder="LastName" />

@@ -38,7 +38,7 @@ export default async function handler(req, res){
       
       const countUser = await users.countDocuments()
       await users.create({...req.body , Password:hashpass , Role: countUser>0?"user":"admin"})
-      res.status(201).json({message:"regiter successfully"})
+      res.status(201).json({message:"regiسter successfully"})
       
     }catch(error){
       res.status(500).json({message:"error server"})

@@ -1,8 +1,12 @@
+.container_contact{
+
+}
 .container_search{
     width: 480px;
     margin: 30px auto;
     display: flex;
     justify-content: space-between;
+    /* background-color: red; */
 }
 
 .container_search input,
@@ -42,4 +46,17 @@
     -ms-border-radius: 15px;
     -o-border-radius: 15px;
     margin: 10px auto;
+}
+@media screen and (max-width:576px) {
+    .container_search{
+        width: 350px;
+        margin: 30px auto;
+        display: flex;
+        justify-content: center;
+         /* background-color: red; */
+    }
+    .container_search input{
+        width: 200px;
+    }
+    
 }
