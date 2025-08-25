@@ -1,0 +1,10 @@
+.footer{
+    display: flex;
+    justify-content: center;
+    background: red;
+    width: 100%;
+}
+.footer p a{
+    text-decoration: none;
+    color: #2115ff;
+}
