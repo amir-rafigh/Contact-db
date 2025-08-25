@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap');
+.main_container{
+    height: 100vh;
+
+}
+.home_container{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    height: 95%;
+
+   
+}
+.home_container > div:first-child{
+    font-family: "Vazirmatn", sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding: 1rem;
+
+
+}
+.auth{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+.auth button{
+    all: unset;
+    font-family: "Josefin Sans", sans-serif;
+    border: 2px solid #6C63FF;
+    padding: 0.6rem 3rem;
+    border-radius: 2rem 2rem;
+    -webkit-border-radius: 2rem 2rem;
+    -moz-border-radius: 2rem 2rem;
+    -ms-border-radius: 2rem 2rem;
+    -o-border-radius: 2rem 2rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+.auth button:hover{
+    background-color: #6C63FF;
+    color: white;
+}
+
+.home_container > div:last-child{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    /* background-color: red; */
+
+}
+
+
+.footer{
+    height: 5%;
+    align-items: center;    
+    text-align: center;
+}
+.footer  a {
+    color: #6C63FF;
+    text-decoration: none;
+
+}
+
+
+@media screen and (max-width:576px) {
+    .home_container{
+        grid-template-columns: 1fr;    
+        height: 85%; 
+        /* align-items: flex-start; */
+        /* grid-auto-rows: auto; */
+    }
+    .home_container > div:first-child{
+        display: flex;
+        gap: 2rem;
+        padding: 1rem;
+    }
+    .home_container > div:first-child h1{
+        font-size: 1.6rem;
+        
+    }
+    .home_container > div:last-child{
+        /* background-color: yellow; */
+    }
+    .home_container > div:last-child img {
+        width: 100%;
+
+      }
+      .footer{
+        height: 15%;
+        /* background-color: orange; */
+      }
+      
+    
+    
+}

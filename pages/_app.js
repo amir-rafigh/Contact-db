@@ -3,9 +3,12 @@ import "@/styles/globals.css";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import { ToastContainer } from "react-toastify";
+import { useRouter } from "next/router";
 
 export default function App({ Component, pageProps }) {
   const [isauth , setIsauth] = useState(false)
+  const route = useRouter()
+
   useEffect(()=>{
       const isTOken = async()=>{
           const Token = await fetch("/api/auth/status")
@@ -32,7 +35,8 @@ export default function App({ Component, pageProps }) {
           newestOnTop
           limit={1} />
       <Head><link rel="icon" href="data:," /></Head>
-      <Navbar isauth={isauth} setIsauth={setIsauth}/>
+      {route.pathname !== "/" && <Navbar isauth={isauth} setIsauth={setIsauth}/>}
+      
       <Component isauth={isauth} setIsauth={setIsauth} {...pageProps} />
     </>
   )
