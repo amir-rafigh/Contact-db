@@ -28,6 +28,9 @@
     gap: 0.6rem;
     padding: 0.8rem 1rem;
 }
+.mobile_container_navbar{
+    background-color: blue;
+}
 @media screen and (max-width:576px) {
     .Dashboard_Container{
         width: 350px;    
@@ -38,6 +41,9 @@
     }
     .Dashboard_Container > h3{
        font-size: 0.7rem;
+    }
+    .mobile_container_navbar{
+        background-color: blue;
     }
     
 }

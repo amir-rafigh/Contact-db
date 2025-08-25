@@ -1,6 +1,12 @@
 .container{
     width: 100vw;
-    height: 100vh;    
+    height: 100vh;  
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+}
+.container > div:first-child img{
+    width: 100%;
 }
 .form{
     width: 600px;
@@ -100,3 +106,15 @@
 }
 }
 
+
+@media screen and (max-width:576px) {
+    .form{
+        width: 100%;
+        padding: 1rem;
+    }
+    .container > div:first-child img{
+        display: none;
+    }
+
+    
+}

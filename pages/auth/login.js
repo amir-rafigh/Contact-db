@@ -189,6 +189,9 @@ export default  function Login ({isauth , setIsauth}){
     return(
         <>
         <div className={Styles.container}>
+            <div>
+                <img src="/Home/undraw_access-account_aydp (1).svg" alt="" />
+            </div>
             <form >
                 <div className={Styles.form_container}>
                     <div className={Styles.login_button}>

@@ -23,7 +23,7 @@ export default function Register(){
     const sendData = async(e)=>{    
         setSpinner(true)    
         e.preventDefault();
-        const data = await fetch("http://localhost:3000/api/auth/register" , {
+        const data = await fetch("/api/auth/register" , {
             method:"POST",
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify(getdata)
@@ -31,6 +31,7 @@ export default function Register(){
         })
         const res = await data.json()
         
+        setSpinner(false)
         if(data.status==201){
             toast.success(res.message || "Registered successfully")
             return router.replace("/auth/login")
@@ -42,7 +43,6 @@ export default function Register(){
         else if(data.status===422){
             return toast.error(res.message)
         }
-        setSpinner(false)
         
         
         
@@ -62,6 +62,9 @@ export default function Register(){
     
             <>
          <div className={Styles.container}>
+            <div>
+                <img src="/Home/undraw_welcome-cats_tw36.svg" alt="" />
+            </div>
              <form className={Styles.form}>
                  <div className={Styles.name_information}>
                      <div>
