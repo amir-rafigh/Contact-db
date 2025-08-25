@@ -12,8 +12,12 @@ export default function Home(){
         <h1>مدیریت ساده و امن مخاطبین شما</h1>
         <p>با این اپلیکیشن می‌توانید مخاطبین خود را اضافه، ویرایش و حذف کنید و همیشه دسترسی سریع داشته باشید</p>
         <div className={Styles.auth}>
-          <button>Login</button>
-          <button>Sign up</button>
+            <button>
+              <Link href="/auth/login">Login</Link>
+            </button>
+          <button>
+            <Link href="/auth/signup">Sign up</Link>
+          </button>
         </div>
       </div>
 
