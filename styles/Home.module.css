@@ -44,6 +44,11 @@
     font-size: 1.3rem;
     cursor: pointer;
 }
+.auth button a{
+    text-decoration: none;
+    color: black;
+
+}
 .auth button:hover{
     background-color: #6C63FF;
     color: white;
