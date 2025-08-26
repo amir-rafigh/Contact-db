@@ -4,6 +4,8 @@ import { useEffect, useState } from "react"
 import { FaEyeSlash, FaRegEye, FaSpinner  } from "react-icons/fa";
 import { toast } from 'react-toastify';
 import Router, { useRouter } from "next/router";
+import { FaArrowLeftLong } from "react-icons/fa6";
+
 
 
 export default  function Login ({isauth , setIsauth}){
@@ -47,29 +49,27 @@ export default  function Login ({isauth , setIsauth}){
     
     
     const sendData=async(e)=>{
-        setSpinner(true)
         e.preventDefault()
-
+        
         if(!form_data.Email || !form_data.Password){
-            console.log("All fileds must be fill");
-            return; 
+            return toast.error("All fileds must be fill")
             
-
+            
         }
         const regexEmail = /^[\w.-]+@([\w-]+\.)+[\w-]{2,4}$/;
-        if(!regexEmail.test(form_data.Email)){
-            console.log("false");            
-            return 
-        }
-
-
-        const res = await fetch("/api/auth/login",{
-            method:"POST",
-            body:JSON.stringify(form_data),
-            headers:{"Content-Type":"application/json"}
-        }) 
+            if(!regexEmail.test(form_data.Email)){
+                return toast.error("Email is invali")
+            }
+            
+            
+            const res = await fetch("/api/auth/login",{
+                method:"POST",
+                body:JSON.stringify(form_data),
+                headers:{"Content-Type":"application/json"}
+            }) 
+            setSpinner(true)
+            
         const data = await res.json()  
-        setSpinner(false)
         if(res.status===200){
             toast.success(data.message)
             router.replace("/dashboard")
@@ -79,6 +79,7 @@ export default  function Login ({isauth , setIsauth}){
         else{
             toast.error(data.message)
         }
+        setSpinner(false)
         
         
 
@@ -221,13 +222,15 @@ export default  function Login ({isauth , setIsauth}){
                     </div>}
 
                     {!loginmethod && !otp &&  <div className={Styles.otp_phone}>
+                        
                         <label>Phone Number :</label>
                         <input onChange={(e)=>setPhone(e.target.value)} type="string" name="" id="" placeholder="phone" />
                         <button onClick={codehandler}>send code</button>
                     </div>}
 
                     {!loginmethod && otp && <div className={Styles.otp_phone}>
-                        <label >Code :</label>
+                        
+                        <label className={Styles.edit_phone}>Code : <p style={{alignItems:"center", display:"flex", gap:"0.2rem"}}  onClick={()=>setOtp(false)}><FaArrowLeftLong /> Edit phone number</p></label>
                         <input onChange={(e)=>setCode(e.target.value)} type="string" name="" id="" placeholder="code" />
                         {timer>0?<span>resend code after {timer}</span>:<span style={{color:"green" , fontSize:"14px" , cursor:"pointer" }} onClick={codehandler}>resend code</span>}
                         <button onClick={otp_login}>login</button>

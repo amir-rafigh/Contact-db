@@ -67,7 +67,7 @@ export default function Contacts({ data , User_Id }) {
           id=""
           placeholder="gender"
           >
-          <option hidden value="">
+          <option value="">
             all
           </option>
           <option value="male">male</option>

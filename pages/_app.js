@@ -24,6 +24,13 @@ export default function App({ Component, pageProps }) {
   },[])
   return(
     <>
+    <Head>
+      <title>Contact managemet app</title>
+      <meta name="description" content="A simple and secure Contact Management App built with Next.js and MongoDB. Add, edit, and delete your contacts easily with fast access and modern UI." />
+      <meta name="author" content="Amir-rafigh"/>
+      <meta name="keyword" content="contact"/>
+
+    </Head>
       <ToastContainer  
            position="top-right"
           autoClose={2000}

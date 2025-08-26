@@ -41,7 +41,7 @@ export default function Editcontact({res}){
 
         try{
 
-            const data = await fetch(`http://localhost:3000/api/contacts/${_id}`,{
+            const data = await fetch(`/api/contacts/${_id}`,{
                 method:"PUT",
                 headers:{"Content-Type":"application/json"},
                 body:JSON.stringify(dataForm)
@@ -55,7 +55,7 @@ export default function Editcontact({res}){
                 toast.error(res.message)
             }
         }catch(error){
-            toast.error("server error")
+            toast.error(error.message)
         }
 
 
