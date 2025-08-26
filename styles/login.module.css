@@ -81,7 +81,8 @@
 
 
 .form button{
-    padding: 0.5rem;
+    all: unset;
+    padding: 0.4rem;
     background-color: rgb(18, 151, 18);
     border: none;
     border-radius: 0.5rem;
@@ -94,6 +95,7 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
+    cursor: pointer;
 }
 .form input{
     width: 100%;
@@ -132,7 +134,7 @@
     width: 400px;
     display: flex;
     flex-direction: column;
-    padding: 2rem 1rem;
+    padding: 1rem 1rem;
 }
 .otp_phone input{
     all: unset;
@@ -158,5 +160,21 @@
     text-align: center;
     background-color: rgb(18, 151, 18);
     color: white;
+    cursor: pointer;
 }
 
+
+.otp_phone .edit_phone{
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    
+}
+
+.otp_phone .edit_phone p:hover{
+    color: rgba(18, 151, 18);
+    cursor: pointer;
+    
+}

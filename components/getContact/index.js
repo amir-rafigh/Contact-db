@@ -12,7 +12,7 @@ export default function Contactitem(item){
 
     const deleteItemHandler=async()=>{
         toast.success("delete")
-        const response = await fetch(`http://localhost:3000/api/contacts/${_id}` , {
+        const response = await fetch(`/api/contacts/${_id}` , {
             method:"DELETE"
         })
         const data = await response.json()
