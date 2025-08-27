@@ -62,12 +62,12 @@ export default  function Login ({isauth , setIsauth}){
             }
             
             
+            setSpinner(true)
             const res = await fetch("/api/auth/login",{
                 method:"POST",
                 body:JSON.stringify(form_data),
                 headers:{"Content-Type":"application/json"}
             }) 
-            setSpinner(true)
             
         const data = await res.json()  
         if(res.status===200){
