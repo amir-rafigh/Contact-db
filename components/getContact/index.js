@@ -7,17 +7,17 @@ import Link from "next/link";
 import { useState } from 'react';
 export default function Contactitem(item){
     const{FirstName , LastName , Age , Gender , Phone , _id , Favorite ,setContactitem , contactitem} = item
-    const[isfavorite , setIsfavorite] = useState(false)
+    // const[isfavorite , setIsfavorite] = useState(false)
     const[isexistId , setIsexistId]= useState([])
 
     const deleteItemHandler=async()=>{
-        toast.success("delete")
         const response = await fetch(`/api/contacts/${_id}` , {
             method:"DELETE"
         })
         const data = await response.json()
         if(response.ok){
             setContactitem(contactitem.filter((item)=>(item._id !== _id)))
+            toast.success("delete")
             
         }
         if(response.status==404){
@@ -27,7 +27,7 @@ export default function Contactitem(item){
         
     }
     const favoriteitemhandler=async(_id)=>{
-        setIsfavorite(!isfavorite)    
+        // setIsfavorite(!isfavorite)    
         const like = await fetch (`/api/contacts/${_id}` ,{method:"PATCH"})
         const res = await like.json()
         toast.success(res.message)

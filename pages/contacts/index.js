@@ -110,6 +110,7 @@ export async function getServerSideProps(context) {
   const{gen , search} = context.query
   res = await modelcontacts.find(generateFilter({gen , search} , User_Id))
   const data = JSON.parse(JSON.stringify(res));  
+  
   return {
     props: { data , User_Id }
   };
