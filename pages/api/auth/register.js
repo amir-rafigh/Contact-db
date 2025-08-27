@@ -1,4 +1,4 @@
-import bcrypt from "bcrypt"
+import bcrypt from "bcryptjs"
 import users from "@/models/users"
 import ConnectDB from "@/utils/connectdb"
 export default async function handler(req, res){
