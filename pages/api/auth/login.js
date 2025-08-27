@@ -1,6 +1,6 @@
 import users from "@/models/users"
 import ConnectDB from "@/utils/connectdb"
-import bcrypt from "bcrypt"
+import bcrypt from "bcryptjs"
 import jwt from "jsonwebtoken"
 import { serialize } from "cookie"
 export default async function handler(req , res){
@@ -31,13 +31,30 @@ export default async function handler(req , res){
         const JWT = jwt.sign({Email:isValidUser.Email , Role :isValidUser.Role , User_Id :isValidUser._id}, process.env.Secret_Key ,
            {expiresIn:"2h"})
         
-        res.setHeader("Set-Cookie" , serialize("token" , JWT , {
-            httpOnly:"true",
-            sameSite:"strict",
-            path:"/",
-            maxAge: 60 *60 * 3
 
-        }))
+        // res.setHeader("Set-Cookie" , serialize("token" , JWT , {
+        //     httpOnly:true,
+        //     sameSite:"strict",
+        //     path:"/",
+        //     maxAge: 60 *60 * 3
+
+        // }))
+
+        ///////////////////////////////////
+        // because the secure true in the local didn't run
+
+        res.setHeader(
+            "Set-Cookie",
+            serialize("token", JWT, {
+              httpOnly: true,
+              secure: true,        
+              sameSite: "lax",       
+              path: "/",
+              maxAge: 60 * 60 * 3,
+            })
+          );
+
+
 
         res.status(200).json({message:"login  successfully"})
         
