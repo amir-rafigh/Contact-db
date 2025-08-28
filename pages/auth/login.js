@@ -123,7 +123,7 @@ export default  function Login ({isauth , setIsauth}){
             if(code.status === 200){
                 toast.success(res.message)
                 setOtp(true)
-                setTimer(30)
+                setTimer(120)
             
             }
             else if(code.status===422){

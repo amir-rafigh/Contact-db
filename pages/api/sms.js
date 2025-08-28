@@ -19,7 +19,7 @@ export default async function handler(req , res) {
         }
 
     const code = Math.floor(Math.random()*9000)+1000    
-    const exp_time = new Date().getTime()+(30*1000)
+    const exp_time = new Date().getTime()+(120*1000)
     try{
         const send_sms = await fetch("https://api.sms.ir/v1/send/liketolike",{
             method:"POST",
