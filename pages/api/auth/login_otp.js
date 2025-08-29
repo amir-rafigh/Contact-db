@@ -19,10 +19,11 @@ export default async function handler(req , res){
         {expiresIn:"2h"})
     
     res.setHeader("Set-Cookie" , serialize("token" , JWT , {
-        httpOnly:"true",
-        sameSite:"strict",
+        httpOnly: true,
+        sameSite:"lax",
         path:"/",
-        maxAge: 60 *60 * 3
+        maxAge: 60 *60 * 3,
+        secure : true
 
     }))
 
