@@ -7,8 +7,8 @@ export default async function handler(req , res){
         sameSite:"lax",
         path:"/",
         httpOnly:true,
-        maxAge:0  ,
-        secure: isProd,
+        maxAge: 0 ,
+        secure: true,
      
 
     }))
