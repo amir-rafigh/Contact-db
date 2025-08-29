@@ -13,7 +13,10 @@ export default function Navbar({isauth , setIsauth}){
     
     const route = useRouter().pathname  
     const logouthandler = async()=>{
-        const log_send = await fetch("api/auth/logout")
+        const log_send = await fetch("api/auth/logout",{
+            method:"POST" ,
+            credentials:"same-origin"
+        })
         const res = await log_send.json();
         if(log_send.status==200){
             setIsauth(false)
