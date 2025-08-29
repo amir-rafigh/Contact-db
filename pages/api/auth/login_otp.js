@@ -18,14 +18,16 @@ export default async function handler(req , res){
     const JWT = jwt.sign({Email:get_code.Email , Role :get_code.Role , User_Id :get_code._id}, process.env.Secret_Key ,
         {expiresIn:"2h"})
     
-    res.setHeader("Set-Cookie" , serialize("token" , JWT , {
-        httpOnly: true,
-        sameSite:"lax",
-        path:"/",
-        maxAge: 60 *60 * 3,
-        secure : true
-
-    }))
+        res.setHeader(
+            "Set-Cookie",
+            serialize("token", JWT, {
+              httpOnly: true,
+              secure: true,        
+              sameSite: "lax",       
+              path: "/",
+              maxAge: 60 * 60 * 3,
+            })
+          );
 
     res.status(200).json({message:"login  successfully"})
 
